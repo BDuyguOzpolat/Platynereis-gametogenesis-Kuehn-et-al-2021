@@ -14,9 +14,12 @@ IMAGE ANALYSIS FILES
 
 
 HCR PROBE GENERATOR
+
 This program written by Ryan Null allows you ease of ordering probes that mesh with the published HCR system of reaction and amplification reagents. https://github.com/rwnull/insitu_probe_generator 
 
 
 PROTOCOLS
+
 Özpolat Lab in situ hybridization protocol
+
 Özpolat Lab HCR protocol 
