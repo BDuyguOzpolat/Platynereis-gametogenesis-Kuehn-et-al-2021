@@ -9,7 +9,7 @@ Ro codes for all three analyses below are in the "analysis.rmd" file.
 3) Dataset 03: P10-P20 amputation experiment analysis
 
 
-IMAGE ANALYSIS FILES
+IMAGE ANALYSIS FILES (COMING SOON)
 1) Low and High density culturing experiment scoring
 2) P10-P20 amputation experiment scoring
 
@@ -21,6 +21,6 @@ This program written by Ryan Null allows you ease of ordering probes that mesh w
 
 PROTOCOLS
 
-Özpolat Lab in situ hybridization protocol
-
-Özpolat Lab HCR protocol 
+1) Özpolat Lab fixation protocol
+2) Özpolat Lab in situ hybridization protocol
+3) Özpolat Lab HCR protocol (with Bria Metzger and Dr. Ryan Null's changes to the original Choi et al 2018 protocol)
