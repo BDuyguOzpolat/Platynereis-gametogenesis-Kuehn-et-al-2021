@@ -1,0 +1,504 @@
+﻿Code,Exp,Label,Sample,Treatment,Day,Segment,Vasa_Cluster,Tail broken
+R3.0.14,ISH5,ControlDay14,Sample 01,Control,Day14,31,1,n
+R3.0.14,ISH5,ControlDay14,Sample 02,Control,Day14,27,0,y
+R3.0.14,ISH5,ControlDay14,Sample 03,Control,Day14,32,0,n
+R3.0.14,ISH5,ControlDay14,Sample 04,Control,Day14,26,1,n
+R3.0.14,ISH5,ControlDay14,Sample 05,Control,Day14,33,8,n
+R4.0.14,ISH7,ControlDay14,Sample 03,Control,Day14,47,28,n
+R4.0.14,ISH7,ControlDay14,Sample 04,Control,Day14,52,40,n
+R4.0.14,ISH7,ControlDay14,Sample 05,Control,Day14,45,34,n
+R4.0.14,ISH7,ControlDay14,Sample 06,Control,Day14,40,4,n
+R4.0.14,ISH7,ControlDay14,Sample 07,Control,Day14,28,1,n
+R4.0.14,ISH7,ControlDay14,Sample 08,Control,Day14,40,19,n
+R4.0.14,ISH7,ControlDay14,Sample 09,Control,Day14,29,0,n
+R4.0.14,ISH7,ControlDay14,Sample 11,Control,Day14,39,1,n
+R4.0.14,ISH7,ControlDay14,Sample 13,Control,Day14,36,1,n
+R4.0.14,ISH7,ControlDay14,Sample 15,Control,Day14,30,8,y
+R4.0.14,ISH7,ControlDay14,Sample 16,Control,Day14,29,0,n
+R4.0.14,ISH7,ControlDay14,Sample 17,Control,Day14,43,75,y - but very little
+R4.0.14,ISH7,ControlDay14,Sample 18,Control,Day14,31,0,n
+R4.0.14,ISH8,ControlDay14,Sample 01,Control,Day14,61,111,n
+R4.0.14,ISH8,ControlDay14,Sample 02,Control,Day14,46,2,n
+R4.0.14,ISH8,ControlDay14,Sample 03,Control,Day14,53,35,n
+R4.0.14,ISH8,ControlDay14,Sample 04,Control,Day14,36,87,may be regenerating
+R4.0.14,ISH8,ControlDay14,Sample 05,Control,Day14,43,2,n
+R4.0.14,ISH8,ControlDay14,Sample 06,Control,Day14,41,44,y - but very little
+R4.0.14,ISH8,ControlDay14,Sample 07,Control,Day14,47,16,n
+R4.0.14,ISH8,ControlDay14,Sample 10,Control,Day14,51,20,n
+R4.0.14,ISH8,ControlDay14,Sample 11,Control,Day14,39,2,n
+R4.0.14,ISH8,ControlDay14,Sample 13,Control,Day14,46,17,n
+R4.0.20,ISH7,ControlDay20,Sample 01,Control,Day20,33,0,n
+R4.0.20,ISH7,ControlDay20,Sample 03,Control,Day20,39,39,n
+R4.0.20,ISH7,ControlDay20,Sample 04,Control,Day20,47,37,y - but very little
+R4.0.20,ISH7,ControlDay20,Sample 05,Control,Day20,49,22,n
+R4.0.20,ISH7,ControlDay20,Sample 06,Control,Day20,50,27,n
+R4.0.20,ISH7,ControlDay20,Sample 07,Control,Day20,51,27,n
+R4.0.20,ISH7,ControlDay20,Sample 09,Control,Day20,34,5,y
+R4.0.20,ISH7,ControlDay20,Sample 10,Control,Day20,51,12,n
+R4.0.20,ISH7,ControlDay20,Sample 11,Control,Day20,48,21,n
+R4.0.20,ISH7,ControlDay20,Sample 12,Control,Day20,42,4,n
+R4.0.20,ISH7,ControlDay20,Sample 14,Control,Day20,48,2,n
+R4.0.20,ISH7,ControlDay20,Sample 15,Control,Day20,28,1,n
+R4.0.20,ISH7,ControlDay20,Sample 16,Control,Day20,41,9,n
+R4.0.20,ISH7,ControlDay20,Sample 17,Control,Day20,32,5,n
+R4.0.20,ISH8,ControlDay20,Sample 01,Control,Day20,50,60,n
+R4.0.20,ISH8,ControlDay20,Sample 03,Control,Day20,27,0,regenerating
+R4.0.20,ISH8,ControlDay20,Sample 04 and 07,Control,Day20,43,8,combined
+R4.0.20,ISH8,ControlDay20,"Sample 05,09,11",Control,Day20,46,17,combined
+R4.0.20,ISH8,ControlDay20,Sample 06,Control,Day20,47,37,n
+R4.0.20,ISH8,ControlDay20,Sample 08,Control,Day20,51,19,n
+R4.0.20,ISH8,ControlDay20,Sample 10,Control,Day20,50,36,n
+R4.0.20,ISH8,ControlDay20,Sample 12,Control,Day20,45,45,n
+R4.0.20,ISH8,ControlDay20,Sample 13,Control,Day20,44,41,n
+R4.0.20,ISH8,ControlDay20,Sample 14,Control,Day20,46,32,n
+R4.0.20,ISH8,ControlDay20,Sample 15,Control,Day20,51,33,n
+R4.0.20,ISH8,ControlDay20,Sample 16,Control,Day20,53,31,n
+R4.0.25,ISH7,ControlDay25,Sample 01,Control,Day25,46,12,n
+R4.0.25,ISH7,ControlDay25,Sample 02,Control,Day25,43,21,y - but very little
+R4.0.25,ISH7,ControlDay25,Sample 03,Control,Day25,45,5,n
+R4.0.25,ISH7,ControlDay25,Sample 06,Control,Day25,43,58,n
+R4.0.25,ISH7,ControlDay25,Sample 07,Control,Day25,51,12,n
+R4.0.25,ISH7,ControlDay25,Sample 08,Control,Day25,37,0,n
+R4.0.25,ISH7,ControlDay25,Sample 09,Control,Day25,48,41,n
+R4.0.25,ISH7,ControlDay25,Sample 10 and 11,Control,Day25,42,21,combined
+R4.0.25,ISH7,ControlDay25,Sample 12,Control,Day25,52,77,n
+R4.0.25,ISH7,ControlDay25,Sample 13,Control,Day25,38,0,n
+R4.0.25,ISH7,ControlDay25,Sample 14,Control,Day25,50,29,n
+R4.0.25,ISH7,ControlDay25,Sample 17,Control,Day25,35,0,n
+R4.0.25,ISH7,ControlDay25,Sample 18,Control,Day25,36,0,n
+R4.0.25,ISH7,ControlDay25,Sample 19,Control,Day25,42,2,n
+R4.0.25,ISH8,ControlDay25,Sample 01,Control,Day25,41,1,n
+R4.0.25,ISH8,ControlDay25,Sample 05,Control,Day25,54,43,n
+R4.0.25,ISH8,ControlDay25,Sample 06,Control,Day25,40,23,n
+R4.0.25,ISH8,ControlDay25,Sample 07,Control,Day25,45,11,n
+R4.0.25,ISH8,ControlDay25,Sample 08,Control,Day25,43,5,n
+R4.0.25,ISH8,ControlDay25,Sample 09,Control,Day25,33,0,n
+R4.0.25,ISH8,ControlDay25,Sample 10,Control,Day25,47,8,n
+R4.0.25,ISH8,ControlDay25,Sample 11,Control,Day25,49,59,n
+R4.0.25,ISH8,ControlDay25,Sample 12,Control,Day25,54,53,n
+R3.0.30,ISH5,ControlDay30,Sample 01,Control,Day30,39,1,n
+R3.0.30,ISH5,ControlDay30,Sample 03,Control,Day30,42,3,n
+R3.0.30,ISH5,ControlDay30,Sample 04,Control,Day30,31,0,y
+R3.0.30,ISH5,ControlDay30,Sample 05,Control,Day30,41,43,n
+R4.0.30,ISH7,ControlDay30,Sample 01 and 08,Control,Day30,71,40,combined
+R4.0.30,ISH7,ControlDay30,Sample 02,Control,Day30,52,52,n
+R4.0.30,ISH7,ControlDay30,Sample 03 and 16,Control,Day30,54,30,combined
+R4.0.30,ISH7,ControlDay30,Sample 05,Control,Day30,56,52,n
+R4.0.30,ISH7,ControlDay30,Sample 06 and 04,Control,Day30,60,90,combined
+R4.0.30,ISH7,ControlDay30,Sample 07,Control,Day30,44,3,n
+R4.0.30,ISH7,ControlDay30,Sample 10,Control,Day30,56,66,n
+R4.0.30,ISH7,ControlDay30,Sample 11 and 09,Control,Day30,46,47,combined
+R4.0.30,ISH7,ControlDay30,Sample 12 and 13,Control,Day30,64,94,combined
+R4.0.30,ISH7,ControlDay30,Sample 14,Control,Day30,43,39,y - but very little
+R4.0.30,ISH7,ControlDay30,Sample 15,Control,Day30,53,65,n
+R4.0.30,ISH8,ControlDay30,Sample 01,Control,Day30,38,35,y
+R4.0.30,ISH8,ControlDay30,Sample 02,Control,Day30,45,18,n
+R4.0.30,ISH8,ControlDay30,Sample 03,Control,Day30,68,41,n
+R4.0.30,ISH8,ControlDay30,Sample 04,Control,Day30,54,58,n
+R4.0.30,ISH8,ControlDay30,Sample 05 and 06,Control,Day30,57,64,combined
+R4.0.30,ISH8,ControlDay30,Sample 07 and 10,Control,Day30,62,96,combined
+R4.0.30,ISH8,ControlDay30,Sample 08 and 14,Control,Day30,48,5,combined
+R4.0.30,ISH8,ControlDay30,Sample 09,Control,Day30,54,79,n
+R4.0.30,ISH8,ControlDay30,Sample 11,Control,Day30,56,31,n
+R4.0.30,ISH8,ControlDay30,Sample 13,Control,Day30,51,49,n
+R4.0.30,ISH8,ControlDay30,Sample 15,Control,Day30,54,46,n
+R4.0.30,ISH8,ControlDay30,Sample 16,Control,Day30,61,44,n
+R4.0.30,ISH8,ControlDay30,Sample 17,Control,Day30,52,57,n
+R4.0.45,ISH7,ControlDay45,Sample 01,Control,Day45,40,51,y
+R4.0.45,ISH7,ControlDay45,Sample 02,Control,Day45,37,25,y
+R4.0.45,ISH7,ControlDay45,Sample 03,Control,Day45,55,64,n
+R4.0.45,ISH7,ControlDay45,Sample 05,Control,Day45,56,64,n
+R4.0.45,ISH7,ControlDay45,Sample 06 and 15,Control,Day45,47,4,combined
+R4.0.45,ISH7,ControlDay45,Sample 07,Control,Day45,47,81,y - but very little
+R4.0.45,ISH7,ControlDay45,Sample 08,Control,Day45,22,0,n
+R4.0.45,ISH7,ControlDay45,Sample 09,Control,Day45,48,8,n
+R4.0.45,ISH7,ControlDay45,Sample 10,Control,Day45,43,49,n
+R4.0.45,ISH7,ControlDay45,Sample 11,Control,Day45,48,2,n
+R4.0.45,ISH7,ControlDay45,Sample 12 and 14,Control,Day45,69,55,combined
+R4.0.45,ISH7,ControlDay45,Sample 13 and 04,Control,Day45,45,35,combined
+R4.0.45,ISH7,ControlDay45,Sample 17,Control,Day45,55,26,n
+R4.0.45,ISH8,ControlDay45,Sample 01 and 13,Control,Day45,48,57,combined
+R4.0.45,ISH8,ControlDay45,Sample 02,Control,Day45,50,124,n
+R4.0.45,ISH8,ControlDay45,Sample 03,Control,Day45,49,63,n
+R4.0.45,ISH8,ControlDay45,Sample 04,Control,Day45,51,129,n
+R4.0.45,ISH8,ControlDay45,Sample 05,Control,Day45,59,36,n
+R4.0.45,ISH8,ControlDay45,Sample 06 and 19,Control,Day45,53,49,combined
+R4.0.45,ISH8,ControlDay45,Sample 07,Control,Day45,40,54,y - but very little
+R4.0.45,ISH8,ControlDay45,Sample 08,Control,Day45,52,45,n
+R4.0.45,ISH8,ControlDay45,Sample 10,Control,Day45,55,54,n
+R4.0.45,ISH8,ControlDay45,Sample 11,Control,Day45,36,25,y
+R4.0.45,ISH8,ControlDay45,Sample 12,Control,Day45,37,2,n
+R4.0.45,ISH8,ControlDay45,Sample 14 and 16,Control,Day45,45,48,combined
+R4.0.45,ISH8,ControlDay45,Sample 15,Control,Day45,62,88,n
+R4.0.45,ISH8,ControlDay45,Sample 17,Control,Day45,41,2,n
+R4.0.45,ISH8,ControlDay45,Sample 18,Control,Day45,47,35,y - but very little
+R4.0.45,ISH8,ControlDay45,Sample 20,Control,Day45,53,46,n
+R3.0.60,ISH5,ControlDay60,Sample 01,Control,Day60,50,48,y
+R3.0.60,ISH5,ControlDay60,Sample 02,Control,Day60,65,67,n
+R3.0.60,ISH5,ControlDay60,Sample 04,Control,Day60,57,64,n
+R3.0.60,ISH5,ControlDay60,Sample 05,Control,Day60,56,55,n
+R3.0.60,ISH5,ControlDay60,Sample 06,Control,Day60,51,40,y - but very little
+R3.0.60,ISH5,ControlDay60,Sample 07,Control,Day60,59,38,n
+R3.0.60,ISH5,ControlDay60,Sample 08,Control,Day60,53,25,n
+R3.0.60,ISH5,ControlDay60,Sample 09,Control,Day60,38,21,y
+R3.0.60,ISH5,ControlDay60,Sample 11,Control,Day60,36,36,y
+R3.0.60,ISH5,ControlDay60,Sample 12,Control,Day60,58,22,n
+R4.0.60,ISH7,ControlDay60,Sample 01,Control,Day60,57,69,n
+R4.0.60,ISH7,ControlDay60,Sample 02,Control,Day60,62,28,n
+R4.0.60,ISH7,ControlDay60,Sample 03,Control,Day60,50,24,n
+R4.0.60,ISH7,ControlDay60,Sample 04,Control,Day60,56,26,n
+R4.0.60,ISH7,ControlDay60,Sample 05,Control,Day60,42,87,y - but very little
+R4.0.60,ISH7,ControlDay60,Sample 06,Control,Day60,57,68,n
+R4.0.60,ISH7,ControlDay60,Sample 07,Control,Day60,57,58,n
+R4.0.60,ISH7,ControlDay60,Sample 08,Control,Day60,60,47,n
+R4.0.60,ISH7,ControlDay60,Sample 09,Control,Day60,62,37,n
+R4.0.60,ISH7,ControlDay60,Sample 10,Control,Day60,61,32,n
+R4.0.60,ISH7,ControlDay60,Sample 11,Control,Day60,61,59,n
+R4.0.60,ISH7,ControlDay60,Sample 12,Control,Day60,60,139,n
+R4.0.60,ISH8,ControlDay60,Sample 01,Control,Day60,66,104,n
+R4.0.60,ISH8,ControlDay60,Sample 03,Control,Day60,58,82,n
+R4.0.60,ISH8,ControlDay60,Sample 04,Control,Day60,45,43,y - but very little
+R4.0.60,ISH8,ControlDay60,Sample 05 and 13,Control,Day60,59,38,combined
+R4.0.60,ISH8,ControlDay60,Sample 06 and 08,Control,Day60,48,102,combined
+R4.0.60,ISH8,ControlDay60,Sample 07,Control,Day60,63,48,n
+R4.0.60,ISH8,ControlDay60,Sample 09 and 10,Control,Day60,61,76,combined
+R4.0.60,ISH8,ControlDay60,Sample 14,Control,Day60,45,11,n
+R4.0.60,ISH8,ControlDay60,Sample 15,Control,Day60,56,12,n
+R4.0.60,ISH8,ControlDay60,Sample 17,Control,Day60,64,30,n
+R4.0.60,ISH8,ControlDay60,Sample 18,Control,Day60,63,43,n
+R3.10.14,ISH5,P10Day14,Sample 01,P10,Day14,19,0,
+R3.10.14,ISH5,P10Day14,Sample 02,P10,Day14,18,0,
+R3.10.14,ISH5,P10Day14,Sample 03,P10,Day14,17,0,
+R3.10.14,ISH5,P10Day14,Sample 04,P10,Day14,20,1,
+R3.10.14,ISH5,P10Day14,Sample 05,P10,Day14,20,0,
+R4.10.14,ISH7,P10Day14,Sample 01,P10,Day14,23,2,n
+R4.10.14,ISH7,P10Day14,Sample 02,P10,Day14,25,0,n
+R4.10.14,ISH7,P10Day14,Sample 03,P10,Day14,24,0,n
+R4.10.14,ISH7,P10Day14,Sample 04,P10,Day14,24,0,n
+R4.10.14,ISH7,P10Day14,Sample 05,P10,Day14,23,0,n
+R4.10.14,ISH7,P10Day14,Sample 06,P10,Day14,19,0,y
+R4.10.14,ISH7,P10Day14,Sample 07,P10,Day14,22,0,n
+R4.10.14,ISH7,P10Day14,Sample 08,P10,Day14,21,0,n
+R4.10.14,ISH7,P10Day14,Sample 09,P10,Day14,21,1,y - but very little
+R4.10.14,ISH8,P10Day14,Sample 01,P10,Day14,22,0,n
+R4.10.14,ISH8,P10Day14,Sample 02,P10,Day14,19,0,n
+R4.10.14,ISH8,P10Day14,Sample 03,P10,Day14,21,0,n
+R4.10.14,ISH8,P10Day14,Sample 04,P10,Day14,18,0,n
+R4.10.14,ISH8,P10Day14,Sample 05,P10,Day14,18,1,y
+R4.10.14,ISH8,P10Day14,Sample 07,P10,Day14,24,4,n
+R4.10.14,ISH8,P10Day14,Sample 08,P10,Day14,19,1,y - but very little
+R4.10.14,ISH8,P10Day14,Sample 09,P10,Day14,30,8,n
+R4.10.20,ISH7,P10Day20,Sample 01,P10,Day20,28,0,n
+R4.10.20,ISH7,P10Day20,Sample 02,P10,Day20,32,2,n
+R4.10.20,ISH7,P10Day20,Sample 04,P10,Day20,27,0,y - but very little
+R4.10.20,ISH7,P10Day20,Sample 05,P10,Day20,29,0,n
+R4.10.20,ISH7,P10Day20,Sample 06,P10,Day20,22,0,y
+R4.10.20,ISH7,P10Day20,Sample 07,P10,Day20,27,0,n
+R4.10.20,ISH7,P10Day20,Sample 08,P10,Day20,28,2,n
+R4.10.20,ISH7,P10Day20,Sample 09,P10,Day20,19,0,n
+R4.10.20,ISH7,P10Day20,Sample 10,P10,Day20,26,0,y
+R4.10.20,ISH7,P10Day20,Sample 12,P10,Day20,29,6,y
+R4.10.20,ISH7,P10Day20,Sample 14,P10,Day20,27,0,n
+R4.10.20,ISH8,P10Day20,Sample 01,P10,Day20,23,0,y - but very little
+R4.10.20,ISH8,P10Day20,Sample 02,P10,Day20,22,0,y - but very little
+R4.10.20,ISH8,P10Day20,Sample 03,P10,Day20,23,2,n
+R4.10.20,ISH8,P10Day20,Sample 04,P10,Day20,25,0,y - but very little
+R4.10.20,ISH8,P10Day20,Sample 06,P10,Day20,30,2,n
+R4.10.20,ISH8,P10Day20,Sample 07,P10,Day20,33,0,n
+R4.10.20,ISH8,P10Day20,Sample 08,P10,Day20,31,1,n
+R4.10.20,ISH8,P10Day20,Sample 09,P10,Day20,24,2,n
+R4.10.20,ISH8,P10Day20,Sample 10,P10,Day20,35,9,n
+R4.10.25,ISH7,P10Day25,Sample 01,P10,Day25,39,15,n
+R4.10.25,ISH7,P10Day25,Sample 03,P10,Day25,34,32,n
+R4.10.25,ISH7,P10Day25,Sample 04,P10,Day25,39,5,n
+R4.10.25,ISH7,P10Day25,Sample 05,P10,Day25,29,0,n
+R4.10.25,ISH7,P10Day25,Sample 06,P10,Day25,33,0,n
+R4.10.25,ISH7,P10Day25,Sample 07,P10,Day25,32,0,n
+R4.10.25,ISH7,P10Day25,Sample 08,P10,Day25,17,0,n
+R4.10.25,ISH7,P10Day25,Sample 09,P10,Day25,35,1,n
+R4.10.25,ISH7,P10Day25,Sample 10,P10,Day25,36,3,n
+R4.10.25,ISH7,P10Day25,Sample 11,P10,Day25,36,1,n
+R4.10.25,ISH7,P10Day25,Sample 12,P10,Day25,35,10,y
+R4.10.25,ISH7,P10Day25,Sample 13,P10,Day25,35,0,n
+R4.10.25,ISH7,P10Day25,Sample 14,P10,Day25,32,1,n
+R4.10.25,ISH7,P10Day25,Sample 16,P10,Day25,32,0,n
+R4.10.25,ISH8,P10Day25,Sample 01,P10,Day25,32,0,n
+R4.10.25,ISH8,P10Day25,Sample 02,P10,Day25,46,32,n
+R4.10.25,ISH8,P10Day25,Sample 03,P10,Day25,37,10,n
+R4.10.25,ISH8,P10Day25,Sample 04,P10,Day25,35,4,n
+R4.10.25,ISH8,P10Day25,Sample 05,P10,Day25,40,10,n
+R4.10.25,ISH8,P10Day25,Sample 06,P10,Day25,41,6,n
+R4.10.25,ISH8,P10Day25,Sample 07,P10,Day25,39,15,n
+R4.10.25,ISH8,P10Day25,Sample 09,P10,Day25,40,6,n
+R4.10.25,ISH8,P10Day25,Sample 10,P10,Day25,39,14,n
+R4.10.25,ISH8,P10Day25,Sample 11,P10,Day25,41,37,n
+R4.10.25,ISH8,P10Day25,Sample 12,P10,Day25,40,9,n
+R3.10.30,ISH5,P10Day30,Sample 01,P10,Day30,31,25,n
+R3.10.30,ISH5,P10Day30,Sample 02,P10,Day30,30,30,y
+R3.10.30,ISH5,P10Day30,Sample 03,P10,Day30,28,63,y
+R3.10.30,ISH5,P10Day30,Sample 04,P10,Day30,28,15,y
+R3.10.30,ISH5,P10Day30,Sample 05,P10,Day30,44,85,n
+R3.10.30,ISH5,P10Day30,Sample 06,P10,Day30,28,12,n
+R3.10.30,ISH5,P10Day30,Sample 07,P10,Day30,27,1,n
+R3.10.30,ISH5,P10Day30,Sample 08,P10,Day30,29,37,y
+R4.10.30,ISH7,P10Day30,Sample 02,P10,Day30,43,28,n
+R4.10.30,ISH7,P10Day30,Sample 03,P10,Day30,43,16,n
+R4.10.30,ISH7,P10Day30,Sample 04,P10,Day30,51,36,n
+R4.10.30,ISH7,P10Day30,Sample 05,P10,Day30,47,60,n
+R4.10.30,ISH7,P10Day30,Sample 06,P10,Day30,43,15,n
+R4.10.30,ISH7,P10Day30,Sample 07,P10,Day30,45,26,n
+R4.10.30,ISH7,P10Day30,Sample 08,P10,Day30,46,29,n
+R4.10.30,ISH7,P10Day30,Sample 09,P10,Day30,46,46,n
+R4.10.30,ISH7,P10Day30,Sample 11,P10,Day30,46,30,n
+R4.10.30,ISH8,P10Day30,Sample 01,P10,Day30,29,1,y
+R4.10.30,ISH8,P10Day30,Sample 02,P10,Day30,24,0,n
+R4.10.30,ISH8,P10Day30,Sample 03,P10,Day30,48,28,n
+R4.10.30,ISH8,P10Day30,Sample 04,P10,Day30,42,11,n
+R4.10.30,ISH8,P10Day30,Sample 05,P10,Day30,47,21,n
+R4.10.30,ISH8,P10Day30,Sample 06,P10,Day30,51,47,n
+R4.10.30,ISH8,P10Day30,Sample 07,P10,Day30,38,18,y
+R4.10.30,ISH8,P10Day30,Sample 08,P10,Day30,35,1,n
+R4.10.30,ISH8,P10Day30,Sample 09,P10,Day30,42,30,n
+R4.10.30,ISH8,P10Day30,Sample 10,P10,Day30,26,0,n
+R4.10.30,ISH8,P10Day30,Sample 12,P10,Day30,50,58,n
+R4.10.30,ISH8,P10Day30,Sample 13,P10,Day30,43,27,n
+R4.10.30,ISH8,P10Day30,Sample 14,P10,Day30,31,4,y
+R4.10.30,ISH8,P10Day30,Sample 16,P10,Day30,43,14,n
+R4.10.45,ISH7,P10Day45,Sample 01,P10,Day45,53,35,y - but very little
+R4.10.45,ISH7,P10Day45,Sample 04 and 02,P10,Day45,56,10,combined
+R4.10.45,ISH7,P10Day45,Sample 05,P10,Day45,48,86,y - but very little
+R4.10.45,ISH7,P10Day45,Sample 06,P10,Day45,38,22,y
+R4.10.45,ISH7,P10Day45,Sample 07 and 03,P10,Day45,47,68,combined
+R4.10.45,ISH7,P10Day45,Sample 08,P10,Day45,41,23,y - but very little
+R4.10.45,ISH7,P10Day45,Sample 09,P10,Day45,38,4,n
+R4.10.45,ISH7,P10Day45,Sample 10 and 17,P10,Day45,45,24,combined
+R4.10.45,ISH7,P10Day45,Sample 11 and 18,P10,Day45,43,51,combined
+R4.10.45,ISH7,P10Day45,Sample 12 and 25,P10,Day45,45,50,combined
+R4.10.45,ISH7,P10Day45,Sample 13 and 20,P10,Day45,53,37,combined
+R4.10.45,ISH7,P10Day45,Sample 14 and 19,P10,Day45,46,28,combined
+R4.10.45,ISH7,P10Day45,Sample 15,P10,Day45,40,3,n
+R4.10.45,ISH7,P10Day45,Sample 16,P10,Day45,48,41,n
+R4.10.45,ISH7,P10Day45,Sample 23,P10,Day45,42,37,n
+R4.10.45,ISH7,P10Day45,Sample 24,P10,Day45,38,91,n
+R4.10.45,ISH7,P10Day45,Sample 26 and 27,P10,Day45,47,16,combined
+R4.10.45,ISH8,P10Day45,Sample 01,P10,Day45,37,49,y
+R4.10.45,ISH8,P10Day45,Sample 02,P10,Day45,44,26,n
+R4.10.45,ISH8,P10Day45,Sample 03,P10,Day45,52,9,n
+R4.10.45,ISH8,P10Day45,Sample 04 and 06,P10,Day45,42,15,combined
+R4.10.45,ISH8,P10Day45,Sample 05 and 12,P10,Day45,44,20,combined
+R4.10.45,ISH8,P10Day45,"Sample 07,08,10",P10,Day45,55,26,combined
+R4.10.45,ISH8,P10Day45,Sample 09,P10,Day45,46,39,y - but very little
+R4.10.45,ISH8,P10Day45,Sample 11,P10,Day45,42,50,y
+R4.10.45,ISH8,P10Day45,Sample 13,P10,Day45,43,73,y
+R3.10.60,ISH5,P10Day60,Sample 01,P10,Day60,59,79,y - but very little
+R3.10.60,ISH5,P10Day60,Sample 03,P10,Day60,57,42,n
+R3.10.60,ISH5,P10Day60,Sample 04,P10,Day60,38,84,n
+R3.10.60,ISH5,P10Day60,Sample 05,P10,Day60,54,74,n
+R3.10.60,ISH5,P10Day60,Sample 06,P10,Day60,57,66,n
+R3.10.60,ISH5,P10Day60,Sample 08,P10,Day60,47,37,n
+R3.10.60,ISH5,P10Day60,Sample 09,P10,Day60,57,111,n
+R3.10.60,ISH5,P10Day60,Sample 10,P10,Day60,40,54,n
+R3.10.60,ISH5,P10Day60,Sample 11,P10,Day60,58,99,n
+R4.10.60,ISH7,P10Day60,Sample 01,P10,Day60,60,24,combined
+R4.10.60,ISH7,P10Day60,Sample 02,P10,Day60,44,48,n
+R4.10.60,ISH7,P10Day60,Sample 03 and 04,P10,Day60,37,92,combined
+R4.10.60,ISH7,P10Day60,Sample 05 and 09,P10,Day60,55,33,combined
+R4.10.60,ISH7,P10Day60,Sample 06 and 13,P10,Day60,64,50,combined
+R4.10.60,ISH7,P10Day60,Sample 07,P10,Day60,48,43,n
+R4.10.60,ISH7,P10Day60,Sample 08 and 16,P10,Day60,56,74,combined
+R4.10.60,ISH7,P10Day60,Sample 10 and 15,P10,Day60,41,65,combined
+R4.10.60,ISH7,P10Day60,Sample 11,P10,Day60,52,37,y
+R4.10.60,ISH7,P10Day60,Sample 12,P10,Day60,43,15,n
+R4.10.60,ISH7,P10Day60,Sample 14,P10,Day60,54,38,n
+R4.10.60,ISH8,P10Day60,Sample 01,P10,Day60,55,23,n
+R4.10.60,ISH8,P10Day60,Sample 03,P10,Day60,49,58,n
+R4.10.60,ISH8,P10Day60,Sample 05 and 15,P10,Day60,58,25,combined
+R4.10.60,ISH8,P10Day60,Sample 06,P10,Day60,46,6,n
+R4.10.60,ISH8,P10Day60,Sample 07,P10,Day60,64,36,n
+R4.10.60,ISH8,P10Day60,Sample 09 and 19,P10,Day60,60,18,combined
+R4.10.60,ISH8,P10Day60,Sample 10,P10,Day60,46,48,n
+R4.10.60,ISH8,P10Day60,Sample 11,P10,Day60,44,44,n
+R4.10.60,ISH8,P10Day60,Sample 12 and 20,P10,Day60,50,102,combined
+R4.10.60,ISH8,P10Day60,Sample 14 and 16,P10,Day60,46,13,combined
+R4.10.60,ISH8,P10Day60,Sample 17 and 08,P10,Day60,40,35,combined
+R4.10.60,ISH8,P10Day60,Sample 18,P10,Day60,54,55,n
+R4.10.60,ISH8,P10Day60,Sample 21,P10,Day60,52,24,n
+R3.20.14,ISH5,P20Day14,Sample 01,P20,Day14,25,8,y
+R3.20.14,ISH5,P20Day14,Sample 02,P20,Day14,28,0,n
+R3.20.14,ISH5,P20Day14,Sample 03,P20,Day14,28,0,n
+R3.20.14,ISH5,P20Day14,Sample 04,P20,Day14,28,0,n
+R3.20.14,ISH5,P20Day14,Sample 05,P20,Day14,29,0,n
+R3.20.14,ISH5,P20Day14,Sample 06,P20,Day14,33,4,n
+R3.20.14,ISH5,P20Day14,Sample 07,P20,Day14,30,0,n
+R3.20.14,ISH5,P20Day14,Sample 08,P20,Day14,31,1,n
+R3.20.14,ISH5,P20Day14,Sample 09,P20,Day14,29,1,n
+R4.20.14,ISH7,P20Day14,Sample 01,P20,Day14,38,3,n
+R4.20.14,ISH7,P20Day14,Sample 02,P20,Day14,36,17,n
+R4.20.14,ISH7,P20Day14,Sample 03,P20,Day14,38,4,n
+R4.20.14,ISH7,P20Day14,Sample 04,P20,Day14,28,0,n
+R4.20.14,ISH7,P20Day14,Sample 05,P20,Day14,29,0,n
+R4.20.14,ISH7,P20Day14,Sample 06,P20,Day14,33,1,n
+R4.20.14,ISH7,P20Day14,Sample 07,P20,Day14,33,0,n
+R4.20.14,ISH7,P20Day14,Sample 08,P20,Day14,31,0,n
+R4.20.14,ISH7,P20Day14,Sample 09,P20,Day14,32,1,n
+R4.20.14,ISH7,P20Day14,Sample 10,P20,Day14,28,7,n
+R4.20.14,ISH7,P20Day14,Sample 11,P20,Day14,36,1,n
+R4.20.14,ISH7,P20Day14,Sample 12,P20,Day14,32,3,n
+R4.20.14,ISH7,P20Day14,Sample 13,P20,Day14,28,0,n
+R4.20.14,ISH8,P20Day14,Sample 01,P20,Day14,37,2,n
+R4.20.14,ISH8,P20Day14,Sample 02,P20,Day14,33,2,n
+R4.20.14,ISH8,P20Day14,Sample 03,P20,Day14,26,4,n
+R4.20.14,ISH8,P20Day14,Sample 04,P20,Day14,30,0,n
+R4.20.14,ISH8,P20Day14,Sample 05,P20,Day14,27,1,n
+R4.20.14,ISH8,P20Day14,Sample 06,P20,Day14,35,3,n
+R4.20.14,ISH8,P20Day14,Sample 07 and 12,P20,Day14,39,35,combined
+R4.20.14,ISH8,P20Day14,Sample 08,P20,Day14,25,1,y
+R4.20.14,ISH8,P20Day14,Sample 09,P20,Day14,28,0,n
+R4.20.14,ISH8,P20Day14,Sample 10,P20,Day14,29,0,n
+R4.20.14,ISH8,P20Day14,Sample 11,P20,Day14,26,0,y - but little
+R4.20.20,ISH7,P20Day20,Sample 01,P20,Day20,39,6,n
+R4.20.20,ISH7,P20Day20,Sample 02,P20,Day20,37,3,n
+R4.20.20,ISH7,P20Day20,Sample 04,P20,Day20,42,15,n
+R4.20.20,ISH7,P20Day20,Sample 05,P20,Day20,34,1,n
+R4.20.20,ISH7,P20Day20,Sample 06,P20,Day20,40,1,n
+R4.20.20,ISH7,P20Day20,Sample 07,P20,Day20,23,4,y
+R4.20.20,ISH7,P20Day20,Sample 08,P20,Day20,36,2,n
+R4.20.20,ISH7,P20Day20,Sample 10,P20,Day20,35,1,n
+R4.20.20,ISH7,P20Day20,Sample 11,P20,Day20,38,16,n
+R4.20.20,ISH7,P20Day20,Sample 12,P20,Day20,31,32,y
+R4.20.20,ISH7,P20Day20,Sample 13,P20,Day20,30,4,y
+R4.20.20,ISH7,P20Day20,Sample 14,P20,Day20,38,0,n
+R4.20.20,ISH7,P20Day20,Sample 15,P20,Day20,35,29,y - but little
+R4.20.20,ISH8,P20Day20,Sample 01,P20,Day20,36,14,y - but little
+R4.20.20,ISH8,P20Day20,Sample 02 and 03,P20,Day20,44,21,combined
+R4.20.20,ISH8,P20Day20,Sample 04,P20,Day20,33,0,y - but little
+R4.20.20,ISH8,P20Day20,Sample 05,P20,Day20,41,26,n
+R4.20.20,ISH8,P20Day20,Sample 06 and 11,P20,Day20,39,20,combined
+R4.20.20,ISH8,P20Day20,Sample 07,P20,Day20,39,18,n
+R4.20.20,ISH8,P20Day20,Sample 08,P20,Day20,38,17,n
+R4.20.20,ISH8,P20Day20,Sample 09,P20,Day20,36,18,y - but little
+R4.20.20,ISH8,P20Day20,Sample 10 and 12,P20,Day20,32,10,combined
+R4.20.20,ISH8,P20Day20,Sample 13,P20,Day20,33,49,y
+R4.20.20,ISH8,P20Day20,Sample 14,P20,Day20,31,2,n
+R4.20.20,ISH8,P20Day20,Sample 15,P20,Day20,44,46,n
+R4.20.20,ISH8,P20Day20,Sample 16,P20,Day20,37,23,y - but little
+R4.20.20,ISH8,P20Day20,Sample 17,P20,Day20,26,7,y - but little
+R4.20.20,ISH8,P20Day20,Sample 18,P20,Day20,44,54,n
+R4.20.25,ISH7,P20Day25,Sample 01,P20,Day25,45,22,n
+R4.20.25,ISH7,P20Day25,Sample 02,P20,Day25,36,38,y
+R4.20.25,ISH7,P20Day25,Sample 03,P20,Day25,36,4,n
+R4.20.25,ISH7,P20Day25,Sample 04 and 05,P20,Day25,46,37,combined
+R4.20.25,ISH7,P20Day25,Sample 06,P20,Day25,44,2,n
+R4.20.25,ISH7,P20Day25,Sample 07,P20,Day25,45,6,n
+R4.20.25,ISH7,P20Day25,Sample 08,P20,Day25,44,15,n
+R4.20.25,ISH7,P20Day25,Sample 09,P20,Day25,41,2,n
+R4.20.25,ISH7,P20Day25,Sample 10,P20,Day25,38,0,n
+R4.20.25,ISH7,P20Day25,Sample 11,P20,Day25,46,27,n
+R4.20.25,ISH7,P20Day25,Sample 12 and 17,P20,Day25,41,16,combined
+R4.20.25,ISH7,P20Day25,Sample 13 and 16,P20,Day25,39,0,combined
+R4.20.25,ISH7,P20Day25,Sample 14,P20,Day25,38,10,n
+R4.20.25,ISH7,P20Day25,Sample 19,P20,Day25,45,25,n
+R4.20.25,ISH7,P20Day25,Sample 20,P20,Day25,43,11,n
+R4.20.25,ISH7,P20Day25,Sample 21,P20,Day25,46,26,n
+R4.20.25,ISH7,P20Day25,Sample 22,P20,Day25,46,13,n
+R4.20.25,ISH8,P20Day25,Sample 01,P20,Day25,39,8,n
+R4.20.25,ISH8,P20Day25,Sample 02,P20,Day25,44,38,n
+R4.20.25,ISH8,P20Day25,Sample 05,P20,Day25,52,50,n
+R4.20.25,ISH8,P20Day25,Sample 06,P20,Day25,19,0,n
+R4.20.25,ISH8,P20Day25,Sample 07,P20,Day25,47,60,n
+R4.20.25,ISH8,P20Day25,Sample 08 and 11,P20,Day25,42,17,combined
+R4.20.25,ISH8,P20Day25,Sample 10,P20,Day25,42,27,y - but little
+R4.20.25,ISH8,P20Day25,Sample 12,P20,Day25,49,50,n
+R4.20.25,ISH8,P20Day25,Sample 13,P20,Day25,34,1,n
+R3.20.30,ISH5,P20Day30,Sample 01,P20,Day30,46,46,n
+R3.20.30,ISH5,P20Day30,Sample 02,P20,Day30,49,119,n
+R3.20.30,ISH5,P20Day30,Sample 03,P20,Day30,47,73,n
+R3.20.30,ISH5,P20Day30,Sample 04,P20,Day30,49,95,n
+R3.20.30,ISH5,P20Day30,Sample 05,P20,Day30,37,91,y
+R3.20.30,ISH5,P20Day30,Sample 06,P20,Day30,46,94,n
+R3.20.30,ISH5,P20Day30,Sample 07,P20,Day30,44,15,n
+R3.20.30,ISH5,P20Day30,Sample 08,P20,Day30,38,34,n
+R3.20.30,ISH5,P20Day30,Sample 09,P20,Day30,45,90,n
+R3.20.30,ISH5,P20Day30,Sample 10,P20,Day30,38,15,n
+R4.20.30,ISH7,P20Day30,Sample 01,P20,Day30,49,42,n
+R4.20.30,ISH7,P20Day30,Sample 02 and 17,P20,Day30,44,24,combined
+R4.20.30,ISH7,P20Day30,Sample 03 and 13,P20,Day30,48,61,combined
+R4.20.30,ISH7,P20Day30,Sample 04,P20,Day30,40,3,n
+R4.20.30,ISH7,P20Day30,Sample 06,P20,Day30,40,4,n
+R4.20.30,ISH7,P20Day30,Sample 07,P20,Day30,44,7,n
+R4.20.30,ISH7,P20Day30,Sample 08,P20,Day30,44,1,n
+R4.20.30,ISH7,P20Day30,Sample 09,P20,Day30,39,40,n
+R4.20.30,ISH7,P20Day30,Sample 10,P20,Day30,37,0,n
+R4.20.30,ISH7,P20Day30,Sample 11 and 05,P20,Day30,56,49,combined
+R4.20.30,ISH7,P20Day30,Sample 12,P20,Day30,41,2,n
+R4.20.30,ISH7,P20Day30,Sample 14,P20,Day30,45,3,n
+R4.20.30,ISH7,P20Day30,Sample 15,P20,Day30,53,23,n
+R4.20.30,ISH7,P20Day30,Sample 16,P20,Day30,49,9,n
+R4.20.30,ISH7,P20Day30,Sample 19,P20,Day30,36,8,n
+R4.20.30,ISH7,P20Day30,Sample 20,P20,Day30,38,10,n
+R4.20.30,ISH8,P20Day30,Sample 01,P20,Day30,45,10,n
+R4.20.30,ISH8,P20Day30,Sample 03,P20,Day30,48,32,n
+R4.20.30,ISH8,P20Day30,Sample 04,P20,Day30,52,22,n
+R4.20.30,ISH8,P20Day30,Sample 05,P20,Day30,46,10,n
+R4.20.30,ISH8,P20Day30,Sample 06,P20,Day30,40,41,n
+R4.20.30,ISH8,P20Day30,Sample 07,P20,Day30,52,75,n
+R4.20.30,ISH8,P20Day30,Sample 08,P20,Day30,55,34,n
+R4.20.30,ISH8,P20Day30,Sample 09,P20,Day30,46,28,n
+R4.20.30,ISH8,P20Day30,Sample 11,P20,Day30,52,38,n
+R4.20.30,ISH8,P20Day30,Sample 12,P20,Day30,48,10,n
+R4.20.30,ISH8,P20Day30,Sample 13,P20,Day30,41,14,n
+R4.20.45,ISH7,P20Day45,Sample 01,P20,Day45,46,29,n
+R4.20.45,ISH7,P20Day45,Sample 02,P20,Day45,41,45,y
+R4.20.45,ISH7,P20Day45,Sample 03 and 13,P20,Day45,57,32,combined
+R4.20.45,ISH7,P20Day45,Sample 04,P20,Day45,52,62,n
+R4.20.45,ISH7,P20Day45,Sample 05,P20,Day45,35,36,regenerating
+R4.20.45,ISH7,P20Day45,Sample 06,P20,Day45,49,5,n
+R4.20.45,ISH7,P20Day45,Sample 07,P20,Day45,54,68,n
+R4.20.45,ISH7,P20Day45,Sample 08 and 16,P20,Day45,54,151,combined
+R4.20.45,ISH7,P20Day45,Sample 09 and 12,P20,Day45,59,17,combined
+R4.20.45,ISH7,P20Day45,Sample 10,P20,Day45,47,60,n
+R4.20.45,ISH7,P20Day45,Sample 11,P20,Day45,54,14,n
+R4.20.45,ISH7,P20Day45,Sample 14 and 17,P20,Day45,52,23,combined
+R4.20.45,ISH7,P20Day45,Sample 15,P20,Day45,51,54,n
+R4.20.45,ISH7,P20Day45,Sample 18,P20,Day45,57,80,n
+R4.20.45,ISH7,P20Day45,Sample 19,P20,Day45,44,36,n
+R4.20.45,ISH7,P20Day45,Sample 20,P20,Day45,51,43,n
+R4.20.45,ISH8,P20Day45,Sample 01,P20,Day45,54,17,n
+R4.20.45,ISH8,P20Day45,Sample 03,P20,Day45,46,17,n
+R4.20.45,ISH8,P20Day45,Sample 04,P20,Day45,46,56,n
+R4.20.45,ISH8,P20Day45,Sample 05,P20,Day45,48,2,n
+R4.20.45,ISH8,P20Day45,Sample 06 and 08,P20,Day45,45,47,combined
+R4.20.45,ISH8,P20Day45,Sample 07,P20,Day45,48,63,n
+R4.20.45,ISH8,P20Day45,Sample 09,P20,Day45,49,8,n
+R4.20.45,ISH8,P20Day45,Sample 10 and 14,P20,Day45,51,68,combined
+R4.20.45,ISH8,P20Day45,Sample 11 and 17,P20,Day45,52,24,combined
+R4.20.45,ISH8,P20Day45,Sample 12 and 16,P20,Day45,39,46,combined
+R4.20.45,ISH8,P20Day45,Sample 15 and 19,P20,Day45,49,51,combined
+R4.20.45,ISH8,P20Day45,Sample 18,P20,Day45,55,17,n
+R3.20.60,ISH5,P20Day60,Sample 01,P20,Day60,58,70,n
+R3.20.60,ISH5,P20Day60,Sample 02 and 04,P20,Day60,59,101,combined
+R3.20.60,ISH5,P20Day60,Sample 03,P20,Day60,38,87,y
+R3.20.60,ISH5,P20Day60,Sample 05 and 07,P20,Day60,60,82,
+R3.20.60,ISH5,P20Day60,Sample 06 and 10,P20,Day60,48,70,combined
+R3.20.60,ISH5,P20Day60,Sample 08,P20,Day60,58,33,n
+R3.20.60,ISH5,P20Day60,Sample 09 and 17,P20,Day60,47,74,combined
+R3.20.60,ISH5,P20Day60,Sample 11,P20,Day60,47,51,n
+R3.20.60,ISH5,P20Day60,Sample 12 and 15,P20,Day60,57,77,combined
+R3.20.60,ISH5,P20Day60,Sample 13 and 14,P20,Day60,60,112,combined
+R4.20.60,ISH7,P20Day60,Sample 02,P20,Day60,55,66,n
+R4.20.60,ISH7,P20Day60,Sample 03,P20,Day60,57,81,n
+R4.20.60,ISH7,P20Day60,Sample 07,P20,Day60,38,29,regenerating
+R4.20.60,ISH7,P20Day60,Sample 08,P20,Day60,48,16,n
+R4.20.60,ISH7,P20Day60,Sample 09,P20,Day60,31,31,y
+R4.20.60,ISH7,P20Day60,Sample 10,P20,Day60,54,12,n
+R4.20.60,ISH7,P20Day60,Sample 11,P20,Day60,34,29,y
+R4.20.60,ISH7,P20Day60,Sample 12,P20,Day60,43,20,n
+R4.20.60,ISH7,P20Day60,Sample 14,P20,Day60,54,34,n
+R4.20.60,ISH8,P20Day60,Sample 01,P20,Day60,63,100,n
+R4.20.60,ISH8,P20Day60,Sample 02 and 04,P20,Day60,42,8,combined
+R4.20.60,ISH8,P20Day60,Sample 03,P20,Day60,60,56,n
+R4.20.60,ISH8,P20Day60,Sample 05,P20,Day60,49,11,n
+R4.20.60,ISH8,P20Day60,Sample 08 and 14,P20,Day60,41,19,combined
+R4.20.60,ISH8,P20Day60,Sample 09,P20,Day60,39,52,n
+R4.20.60,ISH8,P20Day60,Sample 10,P20,Day60,23,8,n
+R4.20.60,ISH8,P20Day60,Sample 11,P20,Day60,51,15,n
