@@ -3,9 +3,10 @@ This repository contains all the codes and other documents related to the manusc
 
 
 R CODES and ASSOCIATED SPREADSHEETS
-1) Vasa cluster analysis in control worms
-2) Low and High density culturing experiment analyis 
-3) P10-P20 amputation experiment analysis
+Ro codes for all three analyses below are in the "analysis.rmd" file.
+1) Dataset 01: Vasa cluster analysis in control worms
+2) Dataset 02: Low and High density culturing experiment analyis 
+3) Dataset 03: P10-P20 amputation experiment analysis
 
 
 IMAGE ANALYSIS FILES
