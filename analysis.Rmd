@@ -1,0 +1,624 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+
+
+```{r, echo = F, message = F}
+rm(list = ls())
+
+suppressMessages(library(ggplot2))
+suppressMessages(library(tidyr))
+suppressMessages(library(dplyr))
+suppressMessages(library(magrittr))
+suppressMessages(library(RColorBrewer))
+suppressMessages(library(fdrtool))
+suppressMessages(library(isotone))
+suppressMessages(library(gam))
+suppressMessages(library(Iso))
+suppressMessages(library(pammtools))
+```
+
+
+
+**Experiment 1**
+
+To estimate the conditional median number of posterior VASA clusters at each observed number of segments among the annelid worms included in this experiment, we fit an isotonic median regression via the *gpava* function in the *isotone* R package (de Leeuw, Hornik, and Mair, 2009). As we wished to evaluate whether age was meaningfully associated with number of Vasa clusters after segment number had been accounted for, we excluded a single observation for which age data was missing. Similarly, we excluded a single observation for which the posterior Vasa cluster count was missing. Additionally, some worms broke prior to measurement of Vasa cluster and segment number. We excluded these as well.
+
+Following Abrevaya (2008), we construct 95\% pointwise confidence intervals via an adjusted (cluster) bootstrap. First, we reestimate the conditional isotonic median curves on 10,000 cluster bootstrapped samples, with clusters defined by the culture boxes in which each worm was grown (to account for possible within-box dependence). We then construct pointwise confidence intervals by rescaling bootstrap percentiles by a factor given in Abrevaya (2008) to account for the fact that the limiting distribution of the bootstrapped estimator is not Gaussian (the limiting distribution has no closed form but can be approximated by Monte Carlo methods).
+
+
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+##### Experiment 1 #####
+
+### Load in data
+experiment_1 <- read.csv("Dataset-01.csv")
+
+### Convert age in days to numeric
+experiment_1$Age.days %<>% as.numeric()
+
+### Filter out observations with missing age
+# sum(is.na(experiment_1$Age.days))
+experiment_1 %<>% dplyr::filter(!is.na(Age.days))
+
+### Filter out observations with broken tails
+sum(experiment_1$Tail.broken != "n")
+experiment_1 %<>% dplyr:: filter(Tail.broken == "n")
+
+### Filter out observations with missing posterior vasa cluster counts
+# sum(is.na(experiment_1$Post.VasaCl))
+experiment_1 %<>% dplyr::filter(!is.na(Post.VasaCl))
+
+
+
+### Fit isotonic median regression
+exp1_reg <- gpava(z = experiment_1$no.of.segments,
+                  y = experiment_1$Post.VasaCl,
+                  solver = weighted.median)
+
+### bootstrap
+nboot <- 10000
+
+boot_fits <- matrix(nrow = nrow(experiment_1), ncol = nboot)
+
+set.seed(430234)
+for(i in 1:nboot){
+  # print(i)
+  boot_boxes <- sample(unique(experiment_1$Culture.box), replace = TRUE)
+  
+  boot_data <- lapply(boot_boxes,
+                      function(x) experiment_1[experiment_1$Culture.box ==x,]) %>%
+    (function(y) do.call(rbind,y))
+  exp1_boot <- gpava(z = boot_data$no.of.segments,
+                  y = boot_data$Post.VasaCl,
+                  solver = weighted.median)
+  
+boot_fits[,i] <- sapply(experiment_1$no.of.segments,
+                              function(t) ifelse(sum(exp1_boot$z == t)>0, min(unique(as.numeric(exp1_boot$x[exp1_boot$z == t]))),
+                                                 ifelse(sum(exp1_boot$z <= t)>0,
+                                                 max(exp1_boot$x[exp1_boot$z <= t]),
+                                                 0)))
+
+
+}
+
+### Calculate bootstrap quantiles
+unadjusted_lower <- apply(boot_fits,1,function(x) quantile(x,.025))
+unadjusted_upper <- apply(boot_fits,1,function(x) quantile(x,.975))
+                   
+
+
+
+
+experiment_1$fitted <- sapply(experiment_1$no.of.segments,
+                              function(t) ifelse(sum(exp1_boot$z == t)>0, min(unique(as.numeric(exp1_boot$x[exp1_boot$z == t]))),
+                                                 ifelse(sum(exp1_boot$z <= t)>0,
+                                                 max(exp1_boot$x[exp1_boot$z <= t]),
+                                                 0)))
+
+### Adjust to account for non-Gaussian limiting distribution
+experiment_1$lower <- experiment_1$fitted + (.9982/1.3822)*(unadjusted_lower - experiment_1$fitted)
+experiment_1$upper <- experiment_1$fitted + (.9982/1.3822)*(unadjusted_upper - experiment_1$fitted)
+
+### Calculate residuals
+experiment_1$residuals <- experiment_1$Post.VasaCl - experiment_1$fitted
+
+### Plot conditional median
+experiment_1 %>%
+  ggplot() + 
+  geom_point(aes(x = no.of.segments, y = Post.VasaCl), alpha = .2) + 
+  geom_step(aes(x = no.of.segments, y = fitted), col = "red") + 
+  geom_stepribbon(aes(x = no.of.segments,ymin = lower, ymax =upper), col = "red", lty = 3,
+                  fill = "grey", alpha = .5) +
+  theme_bw() + 
+  ylab("Number of Vasa Clusters") + 
+  xlab("Number of Segments") + 
+  ggtitle("Number of Vasa Clusters vs. Number of Segments with Fitted Median \n(Experiment 1)") + 
+  theme(axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank()) 
+
+```
+
+
+```{r, echo = F, warning = F, eval = F}
+
+experiment_1 %<>%
+  group_by(Age.days) %<>%
+  mutate(age_median = median(residuals)) %<>%
+  ungroup
+
+experiment_1 %<>%
+  group_by(no.of.segments) %<>%
+  mutate(seg_median = median(residuals)) %<>%
+  ungroup
+
+age_smooth_median <- sapply(39:340,
+                            function(x) median(experiment_1$residuals[abs(experiment_1$Age.days -x)<90]))
+
+age_smooth_median <- data.frame(age_smooth_median = age_smooth_median,
+                                Age.days = 39:340)
+
+smooths <- matrix(ncol = length(39:340),
+                  nrow = 1000)
+
+for(i in 1:1000){
+  indices <- sample(1:nrow(experiment_1),replace = TRUE)
+smooths[i,] <- suppressWarnings(predict(loess(residuals~Age.days,
+                 data = experiment_1[indices,]),
+                 newdata = data.frame(Age.days = 39:340)))
+}
+
+smooth_info <- data.frame(Age.days = 39:340,
+                          lower = apply(smooths,2,function(x) quantile(x,.025)),
+                          upper = apply(smooths,2, function(x) quantile(x,.975))
+                  )
+ggplot() + 
+  geom_point(aes(Age.days, y = residuals),
+             data = experiment_1) +
+  geom_ribbon(aes(Age.days, ymin= lower, ymax = upper),
+              data = smooth_info,
+              alpha = .3) +
+  geom_smooth(aes(Age.days, y = age_median),
+             shape = 5,
+             color = "red",
+             se = F,
+              data =   experiment_1) +
+  geom_point(aes(Age.days, y = age_median),
+             shape = 5,
+             color = "red",
+             data = experiment_1) +
+  geom_errorbar(aes(Age.days, 
+                    ymin = age_median_lower,
+                    ymax = age_median_upper),
+             width = 6,
+             color = "red",
+             data = experiment_1 %>%
+               group_by(Age.days) %>%
+               summarize(age_median_lower = quantile(sapply(1:1000, function(x) median(sample(residuals, replace= T))),.025), 
+                         age_median_upper = quantile(sapply(1:1000, function(x) median(sample(residuals, replace= T))),.975))) +
+  theme_bw() + 
+  xlab("Age in Days") + 
+  ylab("Residuals from Median Regression") + 
+  ggtitle("Residuals from Median Regression against Age in Days \n(Experiment 1)") 
+
+smoothed_medians <- sapply(10:63, function(win_min) median(experiment_1$residuals[experiment_1$no.of.segments %in%
+                                                                     c(win_min, win_min + 10)]))
+
+smoothed_medians <- data.frame(medians = smoothed_medians,
+                               no.of.segments = 10:63 + 5)
+
+experiment_1 %>%
+  ggplot() + 
+  geom_point(aes(x = no.of.segments, y =residuals)) + 
+  geom_smooth(aes(x = no.of.segments, y = medians),col = "red",
+             data = smoothed_medians) +
+  theme_bw() + 
+  xlab("Number of Segments") +
+  ylab("Residuals from median regression") +
+  ggtitle("Median Regression Residuals vs. Number of Segments \n(with Smoother)")
+```
+
+
+```{R, echo = F, warning = F, eval = F}
+##### Experiment 2 #####
+experiment_2 <- read.csv("Dataset-02.csv" )
+
+experiment_2 %<>% as.data.frame()
+
+
+
+# experiment_2 %>%
+#   filter(food_regimen != "x") %>%
+#   ggplot() +
+#   geom_point(aes(x = num_segments, y= total_clusters, color = interaction(culture_type, food_regimen))) +
+#   theme_dark()
+experiment_2$upper <- experiment_2$lower <- NA
+exp2_regs <- vector(4, mode = "list")
+counter <- 1
+experiment_2$fitted <- NA
+for(ct in c("LD","HD")){
+  for(fr in c("half","normal")){
+    
+    
+    exp2_regs[[counter]] <- experiment_2 %>%
+      dplyr::filter(!is.na(PostClNo)) %>%
+      dplyr::filter(Culture.type == ct) %>%
+      dplyr::filter(food.regimen == fr) %>%
+      with(gpava(z = SegmentNo,
+                      y = PostClNo,
+                      solver = weighted.median))
+    
+    
+    experiment_2$fitted[
+      (experiment_2$Culture.type == ct)& 
+        (experiment_2$food.regimen == fr)
+    ] <- sapply(experiment_2$SegmentNo[
+      (experiment_2$Culture.type == ct)& 
+        (experiment_2$food.regimen == fr)
+      ],
+                                    function(t) ifelse(sum(exp2_regs[[counter]]$z == t)>0, min(unique(as.numeric(exp2_regs[[counter]]$x[exp2_regs[[counter]]$z == t]))),
+                                                 ifelse(sum(exp2_regs[[counter]]$z <= t)>0,
+                                                 max(exp2_regs[[counter]]$x[exp2_regs[[counter]]$z <= t]),
+                                                 0)))
+    
+    
+for_boot <- experiment_2 %>%
+      dplyr::filter(!is.na(PostClNo)) %>%
+      dplyr::filter(Culture.type == ct) %>%
+      dplyr::filter(food.regimen == fr)
+boot_fits <- matrix(nrow = nrow(for_boot), ncol = nboot)
+
+set.seed(4324)
+for(i in 1:nboot){
+  # print(i)
+  boot_data <- for_boot[sample(1:nrow(for_boot),replace = T),]
+  exp2_boot <- gpava(z = boot_data$SegmentNo,
+                  y = boot_data$PostClNo,
+                  solver = weighted.median)
+  
+boot_fits[,i] <- sapply(for_boot$SegmentNo,
+                              function(t) ifelse(sum(exp2_boot$z == t)>0, min(unique(as.numeric(exp2_boot$x[exp2_boot$z == t]))),
+                                                 ifelse(sum(exp2_boot$z <= t)>0,
+                                                 max(exp2_boot$x[exp2_boot$z <= t]),
+                                                 0)))
+
+
+}
+
+
+unadjusted_lower <- apply(boot_fits,1,function(x) quantile(x,.025))
+unadjusted_upper <- apply(boot_fits,1,function(x) quantile(x,.975))
+                   
+
+
+
+
+
+
+ experiment_2$lower[
+      (experiment_2$Culture.type == ct)& 
+        (experiment_2$food.regimen == fr)&
+        (!is.na(experiment_2$PostClNo))
+    ]  <- for_boot$fitted + (.9982/1.3822)*(unadjusted_lower - for_boot$fitted)
+ 
+ experiment_2$upper[
+      (experiment_2$Culture.type == ct)& 
+        (experiment_2$food.regimen == fr)&
+        (!is.na(experiment_2$PostClNo))
+    ]  <- for_boot$fitted + (.9982/1.3822)*(unadjusted_upper - for_boot$fitted)
+
+    counter <- counter + 1
+  }
+}
+
+
+experiment_2 %>%
+  filter(food.regimen != "x") %>%
+  filter(Culture.type %in% c("HD","LD")) %>%
+  filter(food.regimen %in% c("normal","half")) %>%
+    filter(!is.na(PostClNo)) %>%
+  ggplot() + 
+    geom_step(aes(x = SegmentNo, y = lower, 
+                group = interaction(Culture.type, food.regimen))) +
+    geom_step(aes(x = SegmentNo, y = upper, 
+                group = interaction(Culture.type, food.regimen))) +
+    # geom_stepribbon(aes(x = SegmentNo, ymax= upper, ymin= lower,
+    #                     fill = interaction(Culture.type, food.regimen),
+    #             group = interaction(Culture.type, food.regimen)),
+    #             alpha = .3) +
+  geom_point(aes(x = SegmentNo, y = PostClNo),
+             alpha = .3) +
+  theme_bw() + 
+  xlab("Number of Segments") +
+  ylab("VASA Clusters") + 
+  facet_grid(Culture.type~food.regimen) + 
+  ggtitle("Posterior VASA Clusters vs. Segment Number by Food Regimen and Culture Type")
+
+
+
+```
+
+```{r, echo = F, eval = F}
+
+experiment_2 %>%
+  filter(food.regimen != "x") %>%
+  filter(Culture.type %in% c("HD","LD")) %>%
+  filter(food.regimen %in% c("normal","half")) %>%
+    filter(!is.na(PostClNo)) %>%
+  ggplot() + 
+  geom_jitter(aes(x = time.point, y = PostClNo, color = Culture.type,
+                  alpha = food.regimen),
+             # alpha = .3,
+             position = position_jitterdodge(jitter.width = .1,
+                                             dodge.width = .75)) +
+  scale_alpha_manual(values = c(.4,1)) + 
+  theme_bw() + 
+  xlab("Number of Segments") +
+  ylab("VASA Clusters") +  
+  ggtitle("Posterior VASA Clusters vs. Segment Number by Food Regimen and Culture Type")
+
+```
+
+
+**Experiment 3**
+
+In this experiment, we wished to compare the relationship between segment number and conditional median number of Vasa clusters across three conditions: a control condition, a condition in which worms' tails were amputated at the 20th segment, and a condition in which tails were amputated at the 10th segment.
+
+We again excluded all observations on worms with broken tails (n = 150). While probability of tail break is likely associated with number of segments, we analyzed complete worms under the assumption that for worms of a given length, number of Vasa clusters is not associated with probability of tail break. If this assumption holds, this missing data reduces our sample size (n = 353 after exclusions) but should not bias our estimates of the association between number of segments and conditional median number of  Vasa clusters.
+
+For each of these conditions, we estimated conditional median Vasa clusters via the *gpava* function in R package *isotone* and constructed 95\% pointwise confidence intervals as described above, again with cluster resampling based on culture box.
+
+
+```{R, echo = F}
+
+##### Experiment 3 #####
+
+### load data
+experiment_3 <- read.csv("Dataset-03.csv")
+
+### exclude broken tails
+# sum(experiment_3$Tail.broken != "n")
+experiment_3 %<>% dplyr::filter(Tail.broken == "n")
+
+
+experiment_3 <- experiment_3[order(experiment_3$Segment),]
+
+n_groups <- experiment_3$Label %>% unique %>% length()
+
+group_nos <- data.frame(group = unique(as.character(experiment_3$Label)),
+                        number = 1:n_groups)
+
+experiment_3$group_nos <- sapply(experiment_3$Label,
+                                function(x) group_nos$number[group_nos$group == as.character(x)])
+
+exp3_regs <- vector(3, mode = "list")
+counter <- 1
+experiment_3$fitted <- NA
+for(trt in c("Control","P10","P20")){
+    
+    exp3_regs[[counter]] <- experiment_3 %>%
+      dplyr::filter(Treatment == trt) %>%
+      with(gpava(z = Segment,
+                 y = Vasa_Cluster,
+                 solver = weighted.median))
+    
+    
+    experiment_3$fitted[
+      (experiment_3$Treatment ==trt)
+      ] <- sapply(experiment_3$Segment[
+        (experiment_3$Treatment == trt)
+        ],
+        function(t) min(unique(as.numeric(exp3_regs[[counter]] $x[
+          exp3_regs[[counter]]$z == t]))))
+
+      
+for_boot <- experiment_3 %>%
+      dplyr::filter(Treatment == trt)
+
+boot_fits <- matrix(nrow = nrow(for_boot), ncol = nboot)
+
+set.seed(93324)
+for(i in 1:nboot){
+  # print(i)
+  boot_data <- sample(unique(for_boot$Day),replace = T)
+  boot_data <- lapply(boot_data,
+                      function(x) for_boot[for_boot$Day==x,]) %>%
+    (function(y) do.call(rbind, y))
+  exp3_boot <- gpava(z = boot_data$Segment,
+                  y = boot_data$Vasa_Cluster,
+                  solver = weighted.median)
+  
+boot_fits[,i] <- sapply(for_boot$Segment,
+                              function(t) ifelse(sum(exp3_boot$z == t)>0, min(unique(as.numeric(exp3_boot$x[exp3_boot$z == t]))),
+                                                 ifelse(sum(exp3_boot$z <= t)>0,
+                                                 max(exp3_boot$x[exp3_boot$z <= t]),
+                                                 0)))
+
+
+}
+
+
+unadjusted_lower <- apply(boot_fits,1,function(x) quantile(x,.025,na.rm = T))
+unadjusted_upper <- apply(boot_fits,1,function(x) quantile(x,.975,na.rm = T))
+                   
+
+
+
+
+
+
+ experiment_3$lower[
+      (experiment_3$Treatment == trt)
+    ]  <- for_boot$fitted + (.9982/1.3822)*(unadjusted_lower - for_boot$fitted)
+ 
+ experiment_3$upper[
+      (experiment_3$Treatment == trt)
+    ]  <- for_boot$fitted + (.9982/1.3822)*(unadjusted_upper - for_boot$fitted)
+ 
+
+    counter <- counter + 1
+  
+}
+
+#Reorder treatment label
+experiment_3$Treatment %<>% factor(levels = c("Control","P20","P10"))
+
+experiment_3 %>%
+  ggplot() + 
+  geom_point(aes(x = Segment, y = Vasa_Cluster), alpha = .2) + 
+  geom_step(aes(x = Segment, y = fitted), col = "red") + 
+  geom_stepribbon(aes(x = Segment ,ymin = lower, ymax =upper), col = "red", lty = 3,
+                  fill = "grey", alpha = .5) +
+  theme_bw() + 
+  ylab("Number of Vasa Clusters") + 
+  xlab("Number of Segments") + 
+  ggtitle("Number of Vasa Clusters vs. Number of Segments with Fitted Median \n(Experiment 3)") + 
+  theme(axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank()) +
+  facet_wrap( ~ Treatment)
+```
+
+
+
+(Here's another possible version of this plot:)
+
+
+```{r, echo = F}
+experiment_3 %>%
+  ggplot() + 
+  # geom_point(aes(x = Segment, y = Vasa_Cluster, color = Treatment), alpha = .2) + 
+  geom_step(aes(x = Segment, y = fitted, color = Treatment)) +
+  geom_stepribbon(aes(x = Segment ,ymin = lower, ymax =upper, fill = Treatment),  alpha = .2) +
+  theme_bw() + 
+  ylab("Number of Vasa Clusters") + 
+  xlab("Number of Segments") + 
+  ggtitle("Number of Vasa Clusters vs. Number of Segments with Fitted Median \n(Experiment 3)") + 
+  theme(axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank()) 
+
+```
+
+
+(Here is the plot by day $\times$ treatment -- I've removed confidence intervals because I realized we don't have enough groups within timepoints to calculate them.)
+
+```{r, echo =F}
+
+experiment_3 %>%
+  group_by(Day,Treatment) %>%
+  mutate(medvasa = median(Vasa_Cluster)) %>%
+  # mutate(boot_lower = quantile(replicate(1000, median(sample(Vasa_Cluster, replace = T))),c(.975)),
+  #        boot_upper = quantile(replicate(1000, median(sample(Vasa_Cluster, replace = T))),c(.025))) %>%
+  ungroup() %>%
+  ggplot() +
+  geom_point(aes(x = Day, y = Vasa_Cluster,
+                 color = Treatment),
+             position = position_dodge(.7),
+             alpha = .4) +
+  geom_errorbar(aes(x = Day, ymin = medvasa,ymax = medvasa, color = Treatment),
+                 position = position_dodge(.7),
+                 width = .6) +
+  # geom_errorbar(aes(x = Day, ymin = boot_lower, ymax = boot_upper,
+  #                   color = Treatment),
+  #               position = position_dodge(.7),
+  #               width = .6
+  #               ) +
+  ylab("Number of Vasa Clusters (with Median)") + 
+  xlab("Time Point") + 
+  ggtitle("Number of Vasa Clusters by Time Point and Condition") + 
+  theme_bw()
+```
+
+
+
+```{r, echo = F, eval = F}
+### without broken worms
+experiment_3_nobroken <- 
+      experiment_3 %>% dplyr::filter(Tail.broken == "n")
+for(trt in c("Control","P10","P20")){
+    
+    exp3_regs[[counter]] <- experiment_3_nobroken %>%
+      dplyr::filter(Treatment == trt) %>%
+      with(gpava(z = Segment,
+                 y = Vasa_Cluster,
+                 solver = weighted.median))
+    
+    
+    experiment_3_nobroken$fitted[
+      (experiment_3_nobroken$Treatment ==trt)
+      ] <- sapply(experiment_3_nobroken$Segment[
+        (experiment_3_nobroken$Treatment == trt)
+        ],
+        function(t) min(unique(as.numeric(exp3_regs[[counter]] $x[
+          exp3_regs[[counter]]$z == t]))))
+
+      
+for_boot <- experiment_3_nobroken %>%
+      dplyr::filter(Treatment == trt)
+
+boot_fits <- matrix(nrow = nrow(for_boot), ncol = nboot)
+
+set.seed(93324)
+for(i in 1:nboot){
+  # print(i)
+  boot_data <- sample(unique(for_boot$Day),replace = T)
+  boot_data <- lapply(boot_data,
+                      function(x) for_boot[for_boot$Day==x,]) %>%
+    (function(y) do.call(rbind, y))
+  exp3_boot <- gpava(z = boot_data$Segment,
+                  y = boot_data$Vasa_Cluster,
+                  solver = weighted.median)
+  
+boot_fits[,i] <- sapply(for_boot$Segment,
+                              function(t) ifelse(sum(exp3_boot$z == t)>0, min(unique(as.numeric(exp3_boot$x[exp3_boot$z == t]))),
+                                                 ifelse(sum(exp3_boot$z <= t)>0,
+                                                 max(exp3_boot$x[exp3_boot$z <= t]),
+                                                 0)))
+
+
+}
+
+
+unadjusted_lower <- apply(boot_fits,1,function(x) quantile(x,.025,na.rm = T))
+unadjusted_upper <- apply(boot_fits,1,function(x) quantile(x,.975,na.rm = T))
+                   
+
+
+
+
+
+
+ experiment_3_nobroken$lower[
+      (experiment_3_nobroken$Treatment == trt)
+    ]  <- for_boot$fitted + (.9982/1.3822)*(unadjusted_lower - for_boot$fitted)
+ 
+ experiment_3_nobroken$upper[
+      (experiment_3_nobroken$Treatment == trt)
+    ]  <- for_boot$fitted + (.9982/1.3822)*(unadjusted_upper - for_boot$fitted)
+ 
+
+    counter <- counter + 1
+  
+}
+
+
+
+```
+
+
+
+
+```{r, echo = F, eval = F}
+
+experiment_3 %>%
+  ggplot() + 
+  geom_point(aes(x = Segment, y = Vasa_Cluster,
+                 color = Tail.broken)) + 
+  geom_step(aes(x = Segment, y = fitted), col = "red") + 
+  geom_stepribbon(aes(x = Segment ,ymin = lower, ymax =upper), col = "red", lty = 3,
+                  fill = "grey", alpha = .5) +
+  theme_bw() + 
+  ylab("Number of Vasa Clusters") + 
+  xlab("Number of Segments") + 
+  ggtitle("Number of Vasa Clusters vs. Number of Segments with Fitted Median \n(Experiment 3)") + 
+  theme(axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank()) +
+  facet_wrap( ~ Treatment)
+
+```
+
