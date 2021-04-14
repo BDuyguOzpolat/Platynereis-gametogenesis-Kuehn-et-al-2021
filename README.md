@@ -11,9 +11,10 @@ R codes for all three analyses below are in the "analysis.rmd" file. (The bootst
 3) Dataset 03: P10-P20 amputation experiment analysis
 
 
-IMAGE ANALYSIS FILES (COMING SOON)
-1) Low and High density culturing experiment scoring
-2) P10-P20 amputation experiment scoring
+IMAGE ANALYSIS FILES 
+1) Low and High density culturing experiment scoring: https://doi.org/10.5281/zenodo.4587817
+
+2) P10-P20 amputation experiment scoring: https://doi.org/10.5281/zenodo.4587804
 
 
 HCR PROBE GENERATOR
