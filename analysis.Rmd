@@ -8,8 +8,6 @@ output:
 
 
 ```{r, echo = F, message = F}
-rm(list = ls())
-
 suppressMessages(library(ggplot2))
 suppressMessages(library(tidyr))
 suppressMessages(library(dplyr))
@@ -26,9 +24,9 @@ suppressMessages(library(pammtools))
 
 **Experiment 1**
 
-To estimate the conditional median number of posterior VASA clusters at each observed number of segments among the annelid worms included in this experiment, we fit an isotonic median regression via the *gpava* function in the *isotone* R package (de Leeuw, Hornik, and Mair, 2009). As we wished to evaluate whether age was meaningfully associated with number of Vasa clusters after segment number had been accounted for, we excluded a single observation for which age data was missing. Similarly, we excluded a single observation for which the posterior Vasa cluster count was missing. Additionally, some worms broke prior to measurement of Vasa cluster and segment number. We excluded these as well.
+To estimate the conditional median number of posterior VASA clusters at each observed number of segments among the annelid worms included in this experiment, we fit an isotonic median regression via the *gpava* function in the *isotone* R package (de Leeuw, Hornik, and Mair, 2009). We excluded a single observation for which age data was missing. Similarly, we excluded a single observation for which the posterior Vasa cluster count was missing. Additionally, some worms broke prior to measurement of Vasa cluster and segment number. We excluded these as well.
 
-Following Abrevaya (2008), we construct 95\% pointwise confidence intervals via an adjusted (cluster) bootstrap. First, we reestimate the conditional isotonic median curves on 10,000 cluster bootstrapped samples, with clusters defined by the culture boxes in which each worm was grown (to account for possible within-box dependence). We then construct pointwise confidence intervals by rescaling bootstrap percentiles by a factor given in Abrevaya (2008) to account for the fact that the limiting distribution of the bootstrapped estimator is not Gaussian (the limiting distribution has no closed form but can be approximated by Monte Carlo methods).
+Following Abrevaya (2005), we construct 95\% pointwise confidence intervals via a cluster bootstrap. First, we reestimate the conditional isotonic median curves on 10,000 cluster bootstrapped samples, with clusters defined by the culture boxes in which each worm was grown (to account for possible within-box dependence). We then construct pointwise confidence intervals by rescaling bootstrap percentiles by a factor given in Table 1 of Abrevaya (2005) to account for the fact that the limiting distribution of the bootstrapped estimator is not Gaussian (the limiting distribution has no closed form but can be approximated by Monte Carlo methods).
 
 
 
@@ -101,6 +99,7 @@ experiment_1$fitted <- sapply(experiment_1$no.of.segments,
                                                  0)))
 
 ### Adjust to account for non-Gaussian limiting distribution
+### Adjustment factors are given in Table 1 of Abrevaya (2005)
 experiment_1$lower <- experiment_1$fitted + (.9982/1.3822)*(unadjusted_lower - experiment_1$fitted)
 experiment_1$upper <- experiment_1$fitted + (.9982/1.3822)*(unadjusted_upper - experiment_1$fitted)
 
