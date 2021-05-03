@@ -123,6 +123,77 @@ experiment_1 %>%
     panel.border = element_blank(),
     panel.background = element_blank()) 
 
+
+
+### Fit isotonic median regression for Age
+exp1_reg <- gpava(z = experiment_1$Age.days,
+                  y = experiment_1$Post.VasaCl,
+                  solver = weighted.median)
+
+### bootstrap
+nboot <- 10000
+
+boot_fits <- matrix(nrow = nrow(experiment_1), ncol = nboot)
+
+set.seed(430234)
+for(i in 1:nboot){
+  # print(i)
+  boot_boxes <- sample(unique(experiment_1$Culture.box), replace = TRUE)
+  
+  boot_data <- lapply(boot_boxes,
+                      function(x) experiment_1[experiment_1$Culture.box ==x,]) %>%
+    (function(y) do.call(rbind,y))
+  exp1_boot <- gpava(z = boot_data$Age.days,
+                  y = boot_data$Post.VasaCl,
+                  solver = weighted.median)
+  
+boot_fits[,i] <- sapply(experiment_1$Age.days,
+                              function(t) ifelse(sum(exp1_boot$z == t)>0, min(unique(as.numeric(exp1_boot$x[exp1_boot$z == t]))),
+                                                 ifelse(sum(exp1_boot$z <= t)>0,
+                                                 max(exp1_boot$x[exp1_boot$z <= t]),
+                                                 0)))
+
+
+}
+
+### Calculate bootstrap quantiles
+unadjusted_lower_age <- apply(boot_fits,1,function(x) quantile(x,.025))
+unadjusted_upper_age <- apply(boot_fits,1,function(x) quantile(x,.975))
+                   
+
+
+
+
+experiment_1$fitted_age <- sapply(experiment_1$Age.days,
+                              function(t) ifelse(sum(exp1_boot$z == t)>0, min(unique(as.numeric(exp1_boot$x[exp1_boot$z == t]))),
+                                                 ifelse(sum(exp1_boot$z <= t)>0,
+                                                 max(exp1_boot$x[exp1_boot$z <= t]),
+                                                 0)))
+
+### Adjust to account for non-Gaussian limiting distribution
+experiment_1$lower_age <- experiment_1$fitted_age + (.9982/1.3822)*(unadjusted_lower_age - experiment_1$fitted_age)
+experiment_1$upper_age <- experiment_1$fitted_age + (.9982/1.3822)*(unadjusted_upper_age - experiment_1$fitted_age)
+
+### Calculate residuals
+experiment_1$residuals_age <- experiment_1$Post.VasaCl - experiment_1$fitted_age
+
+### Plot conditional median
+experiment_1 %>%
+  ggplot() + 
+  geom_point(aes(x = Age.days, y = Post.VasaCl), alpha = .2) + 
+  geom_step(aes(x = Age.days, y = fitted_age), col = "red") + 
+  geom_stepribbon(aes(x = Age.days,ymin = lower_age, ymax =upper_age), col = "red", lty = 3,
+                  fill = "grey", alpha = .5) +
+  theme_bw() + 
+  ylab("Number of Vasa Clusters") + 
+  xlab("Age in Days") + 
+  ggtitle("Number of Vasa Clusters vs. Age in Days with Fitted Median \n(Experiment 1)") + 
+  theme(axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank()) 
+
 ```
 
 
